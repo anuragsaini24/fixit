@@ -1,0 +1,148 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "FixIt Agent API Tests",
+			"type": "shell",
+			"command": "node --test server/tests/api.test.js",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Check Agent Tool Syntax",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"--check",
+				"server/services/agentTools.js"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Agent Tools And Provider Tests",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"--test",
+				"server/tests/providerService.test.js",
+				"server/tests/agentTools.test.js"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Check Smart Assistant Exports",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"--check",
+				"server/services/smartAssistantService.js"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Agent API Integration Check",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"--test",
+				"server/tests/api.test.js",
+				"server/tests/agentTools.test.js"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Test Agent Orchestrator",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"--test",
+				"server/tests/agentOrchestrator.test.js"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Check Agent Session API Client",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"--check",
+				"client/src/services/agentSessionApi.js"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Build Agent Assistant UI",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Build Multi-turn Assistant UI",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Build FixIt Agent UI",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Test Authenticated Agent Sessions",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"--test",
+				"server/tests/api.test.js"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Test Agent Approval Boundary",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"--test",
+				"server/tests/agentOrchestrator.test.js"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		}
+	]
+}

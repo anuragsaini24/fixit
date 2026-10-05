@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="Track your FixIt professional service booking.">
+  <title>Track your booking | FixIt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/booking.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/providers-data.js" defer></script>
+  <script src="js/tracking.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="FixIt home"><span class="brand-mark" aria-hidden="true"><i data-lucide="wrench"></i></span><span>fixit<span class="brand-period">.</span></span></a>
+      <a class="header-cta" href="bookings.html"><i data-lucide="calendar-days" aria-hidden="true"></i> My bookings</a>
+    </div>
+  </header>
+  <main id="main" class="booking-page tracking-page">
+    <div class="tracking-layout" id="tracking-layout" hidden>
+      <section class="tracking-card tracking-main-card" aria-labelledby="tracking-title">
+        <div class="tracking-topline"><div><p class="eyebrow eyebrow-blue">FIXIT BOOKING</p><h1 id="tracking-title">Track your service</h1></div><span class="tracking-status" id="tracking-status"></span></div>
+        <p class="tracking-id">Booking ID <strong id="tracking-booking-id"></strong></p>
+        <dl class="booking-summary-list tracking-summary">
+          <div><dt>Service</dt><dd id="tracking-service"></dd></div>
+          <div><dt>Provider</dt><dd id="tracking-provider"></dd></div>
+          <div><dt>Date</dt><dd id="tracking-date"></dd></div>
+          <div><dt>Time</dt><dd id="tracking-time"></dd></div>
+          <div><dt>Estimated cost</dt><dd id="tracking-cost"></dd></div>
+        </dl>
+        <section class="status-tracker-section" aria-labelledby="tracker-heading">
+          <div class="tracker-heading-row"><div><p class="eyebrow eyebrow-blue">SERVICE PROGRESS</p><h2 id="tracker-heading">Booking status</h2></div><button class="simulate-status-button" id="simulate-status" type="button">Simulate Next Status <i data-lucide="arrow-right" aria-hidden="true"></i></button></div>
+          <ol class="status-tracker" id="status-tracker">
+            <li data-status-index="0"><span class="tracker-marker"><i data-lucide="check" aria-hidden="true"></i></span><div><strong>Booking Confirmed</strong><small>Your service request is confirmed.</small></div></li>
+            <li data-status-index="1"><span class="tracker-marker"><i data-lucide="user-check" aria-hidden="true"></i></span><div><strong>Professional Assigned</strong><small>A professional has accepted your request.</small></div></li>
+            <li data-status-index="2"><span class="tracker-marker"><i data-lucide="map-pin" aria-hidden="true"></i></span><div><strong>Professional On The Way</strong><small>Your professional is heading to you.</small></div></li>
+            <li data-status-index="3"><span class="tracker-marker"><i data-lucide="wrench" aria-hidden="true"></i></span><div><strong>Service Started</strong><small>Work is underway.</small></div></li>
+            <li data-status-index="4"><span class="tracker-marker"><i data-lucide="circle-check" aria-hidden="true"></i></span><div><strong>Service Completed</strong><small>Your service is complete.</small></div></li>
+          </ol>
+          <p class="tracking-prototype-note" id="tracking-message" role="status" aria-live="polite">Status updates are simulated for this prototype.</p>
+        </section>
+        <section class="rate-service-panel" id="rate-service-panel" hidden>
+          <span><i data-lucide="star" aria-hidden="true"></i></span><div><strong>Rate Your Service</strong><p>Share how your experience went.</p></div><a href="review.html" id="write-review">Write Review <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+        </section>
+        <div class="cancelled-banner" id="cancelled-banner" hidden><i data-lucide="circle-x" aria-hidden="true"></i><span>This booking was cancelled.</span></div>
+      </section>
+      <aside class="tracking-provider-card" aria-label="Your service professional">
+        <p class="eyebrow eyebrow-blue">YOUR PROFESSIONAL</p>
+        <div class="tracking-provider-identity"><span class="provider-avatar" id="tracking-avatar"></span><div><h2 id="provider-name"></h2><p id="provider-profession"></p></div></div>
+        <div class="tracking-provider-rating"><i data-lucide="star" aria-hidden="true"></i><strong id="provider-rating"></strong></div>
+        <div class="tracking-provider-actions"><a class="tracking-contact-button" id="provider-call" href="#"><i data-lucide="phone" aria-hidden="true"></i>Call</a><button class="tracking-contact-button" id="provider-chat" type="button"><i data-lucide="message-circle" aria-hidden="true"></i>Chat</button></div>
+        <button class="tracking-cancel-button" id="cancel-booking" type="button">Cancel booking</button>
+        <p class="tracking-prototype-note">Contact and status actions are local demo interactions.</p>
+      </aside>
+    </div>
+    <section class="tracking-card tracking-empty" id="tracking-empty" hidden>
+      <span class="tracking-success-icon tracking-empty-icon"><i data-lucide="calendar-x-2" aria-hidden="true"></i></span>
+      <h1>No booking to track</h1>
+      <p>Confirm a service booking first, and its details will appear here.</p>
+      <a class="booking-button booking-button-next tracking-home" href="providers.html">Browse professionals <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+    </section>
+  </main>
+  <dialog class="tracking-dialog" id="chat-dialog" aria-labelledby="chat-title">
+    <form id="chat-form"><div class="tracking-dialog-top"><span class="tracking-dialog-icon"><i data-lucide="message-square-text" aria-hidden="true"></i></span><button type="button" class="tracking-dialog-close" data-close-dialog aria-label="Close chat"><i data-lucide="x" aria-hidden="true"></i></button></div><h2 id="chat-title">Chat with <span id="chat-provider-name"></span></h2><p>Save a message draft on this device. It will not be delivered in this prototype.</p><label for="chat-message">Message</label><textarea id="chat-message" rows="4" maxlength="1000" required></textarea><div class="tracking-dialog-actions"><button type="button" class="tracking-secondary-button" data-close-dialog>Close</button><button type="submit" class="booking-button booking-button-next">Save message</button></div><p class="tracking-dialog-status" id="chat-status" role="status" aria-live="polite"></p></form>
+  </dialog>
+  <dialog class="tracking-dialog" id="cancel-dialog" aria-labelledby="cancel-title">
+    <form method="dialog"><div class="tracking-dialog-top"><span class="tracking-dialog-icon cancel-dialog-icon"><i data-lucide="triangle-alert" aria-hidden="true"></i></span><button type="button" class="tracking-dialog-close" data-close-dialog aria-label="Close cancellation dialog"><i data-lucide="x" aria-hidden="true"></i></button></div><h2 id="cancel-title">Cancel this booking?</h2><p>The booking will be marked as cancelled on this device.</p><div class="tracking-dialog-actions"><button type="button" class="tracking-secondary-button" data-close-dialog>Keep booking</button><button type="button" class="tracking-danger-button" id="confirm-cancel">Cancel booking</button></div></form>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="Book a trusted FixIt service professional in five simple steps.">
+  <title>Booking | FixIt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/smart-suggestion.css">
+  <link rel="stylesheet" href="css/booking.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/providers-data.js" defer></script>
+  <script src="js/booking.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="FixIt home"><span class="brand-mark" aria-hidden="true"><i data-lucide="wrench"></i></span><span>fixit<span class="brand-period">.</span></span></a>
+      <a class="header-cta" href="providers.html"><i data-lucide="arrow-left" aria-hidden="true"></i> Back to professionals</a>
+    </div>
+  </header>
+  <main id="main" class="booking-page">
+    <div class="booking-wrap">
+      <div class="booking-heading">
+        <div><p class="eyebrow eyebrow-blue">FIXIT SERVICE BOOKING</p><h1>Let’s get it taken care of.</h1><p>Choose a service, tell us what’s going on, and pick a time that works.</p></div>
+        <a class="booking-back-link" href="providers.html"><i data-lucide="arrow-left" aria-hidden="true"></i> Back to professionals</a>
+      </div>
+
+      <nav class="booking-stepper" aria-label="Booking progress">
+        <ol>
+          <li class="is-current" data-step-indicator="1" aria-current="step"><span>01</span><strong>Service</strong></li>
+          <li data-step-indicator="2"><span>02</span><strong>Problem</strong></li>
+          <li data-step-indicator="3"><span>03</span><strong>Date</strong></li>
+          <li data-step-indicator="4"><span>04</span><strong>Time</strong></li>
+          <li data-step-indicator="5"><span>05</span><strong>Summary</strong></li>
+        </ol>
+        <div class="stepper-progress" aria-hidden="true"><span id="stepper-progress-fill"></span></div>
+      </nav>
+
+      <section class="booking-panel" aria-labelledby="step-title">
+        <div class="booking-panel-main">
+          <div class="booking-step-heading"><p id="step-count">STEP 01 OF 05</p><h2 id="step-title" tabindex="-1">Choose your service</h2><span id="step-description">Confirm the service you need.</span></div>
+
+          <section class="booking-step" data-step="1">
+            <label class="booking-label" for="service-select">Service</label>
+            <select class="booking-select" id="service-select" required></select>
+            <p class="booking-field-hint">You can choose another service offered by this professional.</p>
+            <div class="selected-provider-summary"><span class="provider-avatar" id="booking-avatar"></span><div><strong id="booking-provider"></strong><span id="booking-profession"></span></div><span class="verified-badge" id="booking-verified"><i data-lucide="badge-check" aria-hidden="true"></i> Verified</span></div>
+          </section>
+
+          <section class="booking-step" data-step="2" hidden>
+            <label class="booking-label" for="problem-description">Explain your problem...</label>
+            <textarea class="booking-textarea" id="problem-description" rows="5" maxlength="500" placeholder="Explain your problem..." aria-describedby="problem-help problem-counter" required></textarea>
+            <div class="booking-textarea-meta"><span id="problem-help">Share any details that will help the professional prepare.</span><span id="problem-counter">0 / 500</span></div>
+            <p class="booking-validation-message" id="problem-error" role="status" aria-live="polite"></p>
+          </section>
+
+          <section class="booking-step" data-step="3" hidden>
+            <p class="booking-label">Select a date</p>
+            <p class="booking-field-hint">Choose today or a future date.</p>
+            <div class="date-options" id="date-options" role="group" aria-label="Available dates"></div>
+            <p class="booking-validation-message" id="date-error" role="status" aria-live="polite"></p>
+          </section>
+
+          <section class="booking-step" data-step="4" hidden>
+            <p class="booking-label">Select a time</p>
+            <p class="booking-field-hint">All times are shown in your local time zone.</p>
+            <div class="time-options" id="time-options" role="group" aria-label="Available time slots"></div>
+            <p class="booking-validation-message" id="time-error" role="status" aria-live="polite"></p>
+          </section>
+
+          <section class="booking-step" data-step="5" hidden>
+            <p class="summary-kicker"><i data-lucide="clipboard-check" aria-hidden="true"></i> BOOKING SUMMARY</p>
+            <dl class="booking-summary-list">
+              <div><dt>Service</dt><dd id="summary-service"></dd></div>
+              <div><dt>Provider</dt><dd id="summary-provider"></dd></div>
+              <div><dt>Problem</dt><dd id="summary-problem"></dd></div>
+              <div><dt>Date</dt><dd id="summary-date"></dd></div>
+              <div><dt>Time</dt><dd id="summary-time"></dd></div>
+            </dl>
+            <div class="booking-costs">
+              <div><span>Visit charge</span><strong id="summary-visit-charge"></strong></div>
+              <div><span>Estimated service cost</span><strong id="summary-estimated-cost"></strong></div>
+              <div class="booking-total"><span>Total estimated amount</span><strong id="summary-total"></strong></div>
+            </div>
+            <p class="booking-estimate-note">Final service cost may change after the professional reviews the work.</p>
+          </section>
+
+          <p class="booking-error" id="booking-error" role="alert" aria-live="assertive"></p>
+          <div class="booking-controls">
+            <button class="booking-button booking-button-back" id="booking-back" type="button" hidden><i data-lucide="arrow-left" aria-hidden="true"></i> Back</button>
+            <button class="booking-button booking-button-next" id="booking-next" type="button">Next <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            <button class="booking-button booking-button-confirm" id="booking-confirm" type="button" hidden>Confirm Booking <i data-lucide="check" aria-hidden="true"></i></button>
+          </div>
+        </div>
+        <aside class="booking-side-note"><span><i data-lucide="shield-check" aria-hidden="true"></i></span><strong>Booking with confidence</strong><p>Your request is saved on this device for this prototype. No payment is collected.</p></aside>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

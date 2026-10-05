@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="Find trusted local home service professionals and book with confidence on FixIt.">
+  <title>FixIt | Home services, handled</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="FixIt home">
+        <span class="brand-mark" aria-hidden="true"><i data-lucide="wrench"></i></span>
+        <span>fixit<span class="brand-period">.</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="bookings.html">My bookings</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#for-pros">For professionals</a>
+      </nav>
+      <a class="header-cta" href="#service-search">Find a pro <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR HOME, IN GOOD HANDS</p>
+        <h1 id="hero-title">Home repairs,<br><span>handled.</span></h1>
+        <p class="hero-copy">Find trusted local professionals for the things that keep your home running.</p>
+        <form class="search-form" id="service-search" role="search">
+          <label class="visually-hidden" for="service-query">What service do you need?</label>
+          <i data-lucide="search" aria-hidden="true"></i>
+          <input id="service-query" name="service" type="search" placeholder="Try ‘leaky faucet’ or ‘deep clean’" autocomplete="off" required>
+          <button type="submit">Find a pro <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+        </form>
+        <a class="smart-assistant-entry" href="smart-suggestion.html">Not sure what service you need? <strong>Describe the problem <i data-lucide="arrow-right" aria-hidden="true"></i></strong></a>
+        <p class="popular-searches">Popular: <button type="button" data-search="plumbing">Plumbing</button><span aria-hidden="true">·</span><button type="button" data-search="cleaning">House cleaning</button><span aria-hidden="true">·</span><button type="button" data-search="electrical">Electrical</button></p>
+        <p class="search-status" id="search-status" role="status" aria-live="polite"></p>
+      </div>
+      <div class="hero-note"><span class="note-check"><i data-lucide="check" aria-hidden="true"></i></span><span><strong>Good work, nearby.</strong><br>Trusted pros in your neighborhood</span></div>
+      <a class="hero-scroll" href="#services" aria-label="Explore services"><i data-lucide="arrow-down" aria-hidden="true"></i></a>
+    </section>
+
+    <section class="services section-wrap" id="services" aria-labelledby="services-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow eyebrow-blue">A BETTER TO-DO LIST STARTS HERE</p>
+          <h2 id="services-title">What can we help with?</h2>
+          <p class="section-description">Browse help for your home, devices, vehicles, and everyday projects.</p>
+        </div>
+        <span class="results-count" id="results-count"></span>
+      </div>
+      <div class="category-grid" id="category-grid" aria-label="Service categories"></div>
+      <p class="empty-state" id="empty-state" hidden>No exact match yet. Try a broader search like “home repair” or choose a service below.</p>
+      <button class="clear-filter" id="clear-filter" type="button" hidden><i data-lucide="rotate-ccw" aria-hidden="true"></i> Show all services</button>
+    </section>
+
+    <section class="trust-band" aria-label="FixIt service promise">
+      <div class="trust-inner">
+        <div class="trust-intro"><span class="trust-icon"><i data-lucide="shield-check" aria-hidden="true"></i></span><span><strong>Good people. Good work.</strong><small>A little more peace of mind, built in.</small></span></div>
+        <div class="trust-item"><strong>4.9<span>/5</span></strong><small>average pro rating</small></div>
+        <div class="trust-item"><strong>12k<span>+</span></strong><small>jobs completed</small></div>
+        <div class="trust-item"><strong>100<span>%</span></strong><small>locally focused</small></div>
+      </div>
+    </section>
+
+    <section class="steps section-wrap" id="how-it-works" aria-labelledby="steps-title">
+      <div class="section-heading steps-heading">
+        <div>
+          <p class="eyebrow eyebrow-blue">SIMPLE FROM THE START</p>
+          <h2 id="steps-title">Three steps to done.</h2>
+        </div>
+        <p class="section-description">No guesswork. Just the right help, right when you need it.</p>
+      </div>
+      <ol class="steps-list">
+        <li><span class="step-number">01</span><i data-lucide="search-check" aria-hidden="true"></i><h3>Tell us what’s up</h3><p>Choose a service and share what you need done.</p></li>
+        <li><span class="step-number">02</span><i data-lucide="users-round" aria-hidden="true"></i><h3>Meet your match</h3><p>Compare local pros, their work, and real reviews.</p></li>
+        <li><span class="step-number">03</span><i data-lucide="calendar-check-2" aria-hidden="true"></i><h3>Get it handled</h3><p>Pick a time that works and let the pros take it from here.</p></li>
+      </ol>
+    </section>
+
+    <section class="pro-banner" id="for-pros" aria-labelledby="pros-title">
+      <div class="pro-banner-inner">
+        <div><p class="eyebrow">FOR THE PEOPLE WHO GET IT DONE</p><h2 id="pros-title">Great at what you do?<br>Let more people find you.</h2></div>
+        <p class="pro-coming-soon"><i data-lucide="clock-3" aria-hidden="true"></i> Provider sign-up coming soon</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#top" aria-label="FixIt home"><span class="brand-mark" aria-hidden="true"><i data-lucide="wrench"></i></span><span>fixit<span class="brand-period">.</span></span></a>
+    <p>Good help, close to home.</p>
+    <span class="copyright">© 2026 FixIt. Made for the neighborhood.</span>
+  </footer>
+</body>
+</html>

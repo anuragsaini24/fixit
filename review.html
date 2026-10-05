@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="Rate your recent FixIt service experience.">
+  <title>Write a review | FixIt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/booking.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/review.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="FixIt home"><span class="brand-mark" aria-hidden="true"><i data-lucide="wrench"></i></span><span>fixit<span class="brand-period">.</span></span></a>
+      <a class="header-cta" href="tracking.html"><i data-lucide="arrow-left" aria-hidden="true"></i> Back to tracking</a>
+    </div>
+  </header>
+  <main id="main" class="review-page">
+    <section class="review-card" id="review-card" hidden>
+      <p class="eyebrow eyebrow-blue">YOUR FEEDBACK</p>
+      <h1>How was your service?</h1>
+      <p class="review-context">Review your service with <strong id="review-provider"></strong>.</p>
+      <form id="review-form">
+        <fieldset class="rating-fieldset">
+          <legend>Your rating</legend>
+          <div class="rating-options">
+            <label><input type="radio" name="rating" value="1" required><span aria-hidden="true">★</span><span class="visually-hidden">1 star</span></label>
+            <label><input type="radio" name="rating" value="2"><span aria-hidden="true">★</span><span class="visually-hidden">2 stars</span></label>
+            <label><input type="radio" name="rating" value="3"><span aria-hidden="true">★</span><span class="visually-hidden">3 stars</span></label>
+            <label><input type="radio" name="rating" value="4"><span aria-hidden="true">★</span><span class="visually-hidden">4 stars</span></label>
+            <label><input type="radio" name="rating" value="5"><span aria-hidden="true">★</span><span class="visually-hidden">5 stars</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="sentiment-fieldset">
+          <legend>Overall experience</legend>
+          <div class="sentiment-options">
+            <label><input type="radio" name="sentiment" value="Excellent" required><span>Excellent</span></label>
+            <label><input type="radio" name="sentiment" value="Good"><span>Good</span></label>
+            <label><input type="radio" name="sentiment" value="Average"><span>Average</span></label>
+            <label><input type="radio" name="sentiment" value="Poor"><span>Poor</span></label>
+          </div>
+        </fieldset>
+        <label class="review-label" for="review-comment">Your review</label>
+        <textarea id="review-comment" rows="5" maxlength="1000" placeholder="Share your experience..." required></textarea>
+        <button class="booking-button booking-button-next review-submit" type="submit">Submit Review <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+      </form>
+      <p class="review-form-status" id="review-form-status" role="status" aria-live="polite"></p>
+      <a class="review-tracking-link" href="tracking.html">Return to booking tracking</a>
+    </section>
+    <section class="review-card review-empty" id="review-empty" hidden>
+      <h1>No completed booking found</h1>
+      <p>Complete a FixIt booking before writing a review.</p>
+      <a class="booking-button booking-button-next" href="tracking.html">Back to tracking <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="Describe a home or device problem and get a FixIt service recommendation.">
+  <title>Describe your problem | FixIt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/smart-suggestion.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/service-recommendation.js" defer></script>
+  <script src="js/smart-suggestion-page.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="FixIt home">
+        <span class="brand-mark" aria-hidden="true"><i data-lucide="wrench"></i></span>
+        <span>fixit<span class="brand-period">.</span></span>
+      </a>
+      <button class="menu-toggle assistant-menu-toggle" type="button" aria-expanded="false" aria-controls="assistant-nav" aria-label="Open navigation">
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+      <nav class="assistant-nav" id="assistant-nav" aria-label="Main navigation">
+        <a href="index.html#services">Browse services</a>
+        <a href="index.html#how-it-works">How it works</a>
+      </nav>
+      <a class="header-cta" href="index.html">Back to home <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+    </div>
+  </header>
+
+  <main id="main" class="assistant-page">
+    <div class="assistant-wrap">
+      <div class="assistant-intro">
+        <p class="eyebrow eyebrow-blue"><span class="assistant-sparkle"><i data-lucide="sparkles" aria-hidden="true"></i></span> FIXIT SMART SUGGESTION</p>
+        <h1>Not sure who to call?</h1>
+        <p>Describe what’s going on. We’ll suggest the right kind of professional to get you started.</p>
+      </div>
+
+      <section class="assistant-card" aria-label="Smart service assistant">
+        <div class="assistant-card-top">
+          <span class="assistant-online-dot" aria-hidden="true"></span>
+          <span>LOCAL SERVICE MATCHER</span>
+          <span class="assistant-powered">Keyword-based suggestions</span>
+        </div>
+        <div class="assistant-grid">
+          <form class="problem-form" id="problem-form">
+            <label for="problem-description">What’s the problem?</label>
+            <p class="field-hint" id="description-hint">A few details help us point you in the right direction.</p>
+            <textarea id="problem-description" name="problem" rows="5" maxlength="500" aria-describedby="description-hint character-count" placeholder="For example: My laptop is not turning on and it is not charging." required></textarea>
+            <div class="field-meta"><span id="form-message" role="status" aria-live="polite"></span><span id="character-count">0 / 500</span></div>
+            <fieldset class="example-prompts">
+              <legend>Try an example</legend>
+              <div class="example-list">
+                <button type="button" data-example="My laptop is not turning on and it is not charging.">Laptop won’t charge</button>
+                <button type="button" data-example="There is a water leak under my kitchen sink.">Leaking sink</button>
+                <button type="button" data-example="My ceiling fan stopped working.">Fan stopped working</button>
+              </div>
+            </fieldset>
+            <button class="analyze-button" type="submit"><i data-lucide="scan-search" aria-hidden="true"></i> Suggest a service</button>
+            <div class="manual-choice" id="manual-choice" hidden>
+              <p id="no-match-message">We couldn't confidently identify the service. Please select a category manually.</p>
+              <label for="manual-category">Select a service category</label>
+              <select id="manual-category">
+                <option value="">Choose a category</option>
+              </select>
+            </div>
+          </form>
+
+          <section class="suggestion-panel" aria-labelledby="suggestion-title" aria-live="polite">
+            <div class="suggestion-empty" id="suggestion-empty">
+              <span class="suggestion-empty-icon"><i data-lucide="message-square-text" aria-hidden="true"></i></span>
+              <h2 id="suggestion-title">Your suggestion will appear here</h2>
+              <p>Tell us a little about the issue and we’ll find a matching service category.</p>
+            </div>
+            <div class="suggestion-result" id="suggestion-result" hidden>
+              <p class="result-kicker"><i data-lucide="badge-check" aria-hidden="true"></i> RECOMMENDED SERVICE</p>
+              <h2 id="recommended-service"></h2>
+              <p class="match-note" id="match-note"></p>
+              <div class="result-divider"></div>
+              <h3>Possible issues</h3>
+              <ul class="issue-list" id="possible-issues"></ul>
+              <div class="estimate-row">
+                <div>
+                  <span class="estimate-label">Estimated cost</span>
+                  <strong class="estimate-value" id="estimated-cost"></strong>
+                </div>
+                <div class="professional-count">
+                  <span class="estimate-label">Recommended professionals</span>
+                  <strong class="estimate-value"><i data-lucide="users-round" aria-hidden="true"></i><span id="professional-count"></span></strong>
+                </div>
+              </div>
+              <p class="estimate-disclaimer">A guide only. Final pricing depends on the job and the professional.</p>
+              <button class="find-professionals-button" id="find-professionals" type="button">Find Professionals <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            </div>
+          </section>
+        </div>
+      </section>
+      <p class="assistant-footnote"><i data-lucide="info" aria-hidden="true"></i> Suggestions are based on your description and are not a diagnosis or a final quote.</p>
+    </div>
+  </main>
+</body>
+</html>

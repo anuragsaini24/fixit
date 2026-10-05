@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="View a FixIt service professional profile.">
+  <title>Professional profile | FixIt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/smart-suggestion.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/providers-data.js" defer></script>
+  <script src="js/provider-profile-page.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="FixIt home"><span class="brand-mark" aria-hidden="true"><i data-lucide="wrench"></i></span><span>fixit<span class="brand-period">.</span></span></a>
+      <a class="header-cta" href="providers.html"><i data-lucide="arrow-left" aria-hidden="true"></i> Back to professionals</a>
+    </div>
+  </header>
+  <main id="main" class="provider-detail-page">
+    <div class="provider-detail-wrap">
+      <section class="provider-profile" id="provider-profile" aria-labelledby="profile-name" hidden>
+        <div class="profile-cover"></div>
+        <div class="profile-main">
+          <div class="profile-topline">
+            <span class="provider-avatar profile-avatar" id="profile-avatar" aria-hidden="true"></span>
+            <div class="profile-identity">
+              <div class="profile-name-row"><h1 id="profile-name"></h1><span class="verified-badge" id="profile-verified"><i data-lucide="badge-check" aria-hidden="true"></i><span>Verified</span></span></div>
+              <p id="profile-profession"></p>
+              <div class="profile-rating-line"><span class="provider-rating"><i data-lucide="star" aria-hidden="true"></i><strong id="profile-rating"></strong></span><span id="profile-review-count"></span><span id="profile-experience"></span></div>
+            </div>
+            <span class="availability-badge" id="profile-availability"></span>
+          </div>
+
+          <nav class="profile-section-nav" aria-label="Profile sections">
+            <a href="#about-section">About</a><a href="#services-section">Services</a><a href="#reviews-section">Reviews</a><a href="#availability-section">Availability</a>
+          </nav>
+
+          <div class="profile-columns">
+            <div class="profile-content">
+              <section class="profile-section profile-content-section" id="about-section" aria-labelledby="about-title">
+                <h2 id="about-title">About</h2>
+                <p id="profile-about"></p>
+                <div class="profile-facts"><span><i data-lucide="map-pin" aria-hidden="true"></i><strong id="profile-location"></strong></span><span><i data-lucide="briefcase-business" aria-hidden="true"></i><strong id="profile-experience-detail"></strong></span></div>
+              </section>
+              <section class="profile-section profile-content-section" id="services-section" aria-labelledby="services-title">
+                <h2 id="services-title">Services</h2>
+                <p class="profile-section-lede">Services offered by this professional.</p>
+                <ul class="profile-services" id="profile-services"></ul>
+              </section>
+              <section class="profile-section profile-content-section" id="reviews-section" aria-labelledby="reviews-title">
+                <div class="reviews-heading"><div><h2 id="reviews-title">Reviews</h2><p class="profile-section-lede">Recent feedback from customers.</p></div><span class="review-summary"><i data-lucide="star" aria-hidden="true"></i><strong id="reviews-average"></strong></span></div>
+                <div class="review-list" id="review-list"></div>
+                <p class="sample-review-note">Reviews shown are sample content for this prototype.</p>
+              </section>
+              <section class="profile-section profile-content-section" id="availability-section" aria-labelledby="availability-title">
+                <h2 id="availability-title">Availability</h2>
+                <div class="availability-detail"><span class="availability-dot" id="availability-dot"></span><div><strong id="availability-heading"></strong><p id="availability-description"></p></div></div>
+              </section>
+            </div>
+
+            <aside class="profile-aside" aria-label="Booking and contact actions">
+              <div><span>Starting price</span><strong id="profile-price"></strong></div>
+              <div><span>Distance</span><strong id="profile-distance"></strong></div>
+              <div class="profile-aside-rating"><span>Customer rating</span><strong><i data-lucide="star" aria-hidden="true"></i><span id="profile-aside-rating"></span></strong></div>
+              <button class="book-action profile-book-link" id="book-service" type="button">Book Service <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+              <div class="profile-secondary-actions">
+                <a class="profile-secondary-action" id="call-provider" href="#"><i data-lucide="phone" aria-hidden="true"></i>Call</a>
+                <button class="profile-secondary-action" id="message-provider" type="button"><i data-lucide="message-circle" aria-hidden="true"></i>Message</button>
+              </div>
+              <button class="favorite-action" id="favorite-provider" type="button" aria-pressed="false"><i data-lucide="heart" aria-hidden="true"></i><span>Add to Favorites</span></button>
+              <p class="profile-message-status" id="profile-message-status" role="status" aria-live="polite"></p>
+            </aside>
+          </div>
+        </div>
+      </section>
+      <section class="provider-listing-empty profile-empty" id="profile-empty" hidden>
+        <span class="listing-empty-icon"><i data-lucide="user-round-x" aria-hidden="true"></i></span>
+        <h2>No professional selected</h2>
+        <p>Choose a provider from the listing to view their profile.</p>
+        <a class="book-action profile-back-link" href="providers.html">Browse professionals <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+      </section>
+      <p class="mock-data-note"><i data-lucide="info" aria-hidden="true"></i> This profile uses sample provider data for the FixIt prototype.</p>
+    </div>
+  </main>
+  <dialog class="message-dialog" id="message-dialog" aria-labelledby="message-title">
+    <form id="message-form">
+      <div class="message-dialog-heading"><span class="message-dialog-icon"><i data-lucide="message-square-text" aria-hidden="true"></i></span><button class="dialog-close" id="close-message" type="button" aria-label="Close message dialog"><i data-lucide="x" aria-hidden="true"></i></button></div>
+      <h2 id="message-title">Message <span id="message-provider-name"></span></h2>
+      <p class="message-dialog-copy">Write a note to keep with this provider on this device. Messages are not delivered from this prototype.</p>
+      <label for="message-content">Your message</label>
+      <textarea id="message-content" rows="4" maxlength="1000" placeholder="Tell the professional what you need help with." required></textarea>
+      <div class="message-dialog-actions"><button class="dialog-cancel" id="cancel-message" type="button">Cancel</button><button class="book-action" type="submit">Save message <i data-lucide="arrow-right" aria-hidden="true"></i></button></div>
+    </form>
+  </dialog>
+</body>
+</html>

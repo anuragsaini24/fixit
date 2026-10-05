@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="View and manage your FixIt service bookings.">
+  <title>My bookings | FixIt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/booking.css">
+  <link rel="stylesheet" href="css/customer-bookings.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/bookings.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="FixIt home"><span class="brand-mark" aria-hidden="true"><i data-lucide="wrench"></i></span><span>fixit<span class="brand-period">.</span></span></a>
+      <a class="header-cta" href="index.html"><i data-lucide="arrow-left" aria-hidden="true"></i> Back to home</a>
+    </div>
+  </header>
+  <main id="main" class="customer-bookings-page">
+    <div class="customer-bookings-wrap">
+      <div class="customer-bookings-heading"><div><p class="eyebrow eyebrow-blue">YOUR FIXIT ACTIVITY</p><h1>My bookings</h1><p>Keep track of your service requests and completed work.</p></div><a href="providers.html" class="browse-professionals-link">Find a professional <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+      <div class="booking-tabs" role="tablist" aria-label="Filter bookings">
+        <button type="button" role="tab" aria-selected="true" data-booking-filter="all">All <span id="count-all">0</span></button>
+        <button type="button" role="tab" aria-selected="false" data-booking-filter="upcoming">Upcoming <span id="count-upcoming">0</span></button>
+        <button type="button" role="tab" aria-selected="false" data-booking-filter="completed">Completed <span id="count-completed">0</span></button>
+        <button type="button" role="tab" aria-selected="false" data-booking-filter="cancelled">Cancelled <span id="count-cancelled">0</span></button>
+      </div>
+      <p class="bookings-results-count" id="bookings-results-count" role="status" aria-live="polite"></p>
+      <section class="customer-bookings-grid" id="customer-bookings-grid" aria-label="Bookings"></section>
+      <section class="customer-bookings-empty" id="customer-bookings-empty" hidden>
+        <span class="customer-empty-icon"><i data-lucide="calendar-days" aria-hidden="true"></i></span>
+        <h2 id="bookings-empty-title">No bookings yet</h2>
+        <p id="bookings-empty-copy">Find a local professional and your service bookings will appear here.</p>
+        <a href="providers.html" class="browse-professionals-link empty-booking-link">Browse professionals <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+      </section>
+      <p class="bookings-storage-error" id="bookings-storage-error" role="alert" aria-live="assertive"></p>
+    </div>
+  </main>
+</body>
+</html>

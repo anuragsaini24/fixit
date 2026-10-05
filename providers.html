@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="Browse trusted local FixIt service professionals.">
+  <title>Local professionals | FixIt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/smart-suggestion.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/providers-data.js" defer></script>
+  <script src="js/providers-page.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="FixIt home">
+        <span class="brand-mark" aria-hidden="true"><i data-lucide="wrench"></i></span>
+        <span>fixit<span class="brand-period">.</span></span>
+      </a>
+      <a class="header-cta" href="smart-suggestion.html"><i data-lucide="arrow-left" aria-hidden="true"></i> Change service</a>
+    </div>
+  </header>
+
+  <main id="main" class="provider-listing-page">
+    <div class="provider-listing-wrap">
+      <div class="listing-heading">
+        <div>
+          <p class="eyebrow eyebrow-blue">LOCAL PROFESSIONALS</p>
+          <h1 id="listing-title">Find the right pro</h1>
+          <p id="listing-subtitle">Trusted local help, ready when you need it.</p>
+        </div>
+        <a class="listing-change-link" href="smart-suggestion.html">Change service <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+      </div>
+
+      <section class="provider-filters" aria-label="Filter and sort professionals">
+        <label class="provider-search-field" for="provider-search">
+          <span>Search by name</span>
+          <span class="provider-search-control"><i data-lucide="search" aria-hidden="true"></i><input id="provider-search" type="search" placeholder="e.g. Aarav Patel" autocomplete="off"></span>
+        </label>
+        <label class="filter-field" for="location-filter"><span>State / union territory</span><select id="location-filter"><option value="">All states</option></select></label>
+        <label class="filter-field price-filter" for="price-filter"><span>Starting price up to <strong id="price-value"></strong></span><input id="price-filter" type="range" min="0" max="5000" value="5000" step="10"></label>
+        <label class="filter-field" for="rating-filter"><span>Rating</span><select id="rating-filter"><option value="0">All ratings</option><option value="4.5">4.5 and above</option><option value="4.7">4.7 and above</option><option value="4.9">4.9 and above</option></select></label>
+        <label class="filter-field" for="availability-filter"><span>Availability</span><select id="availability-filter"><option value="any">Any availability</option><option value="today">Available today</option></select></label>
+        <label class="filter-field sort-field" for="sort-filter"><span>Sort by</span><select id="sort-filter"><option value="rating">Rating</option><option value="price">Price: Low to High</option><option value="distance">Distance</option></select></label>
+      </section>
+
+      <div class="listing-results-bar">
+        <p id="listing-count" role="status" aria-live="polite"></p>
+        <button class="reset-filters" id="reset-filters" type="button"><i data-lucide="rotate-ccw" aria-hidden="true"></i> Reset filters</button>
+      </div>
+      <section class="provider-grid" id="provider-grid" aria-label="Service professionals"></section>
+      <div class="provider-pagination" id="provider-pagination" hidden>
+        <p id="pagination-count"></p>
+        <button class="load-more-button" id="load-more" type="button">Load more professionals <i data-lucide="arrow-down" aria-hidden="true"></i></button>
+      </div>
+      <section class="provider-listing-empty" id="provider-listing-empty" hidden>
+        <span class="listing-empty-icon"><i data-lucide="search-x" aria-hidden="true"></i></span>
+        <h2>No pros match those filters</h2>
+        <p>Try adjusting the location, price, rating, or availability.</p>
+        <button class="reset-filters reset-empty" type="button"><i data-lucide="rotate-ccw" aria-hidden="true"></i> Reset filters</button>
+      </section>
+      <p class="mock-data-note"><i data-lucide="info" aria-hidden="true"></i> Provider profiles and service coverage across India are mock data for this prototype.</p>
+    </div>
+  </main>
+</body>
+</html>

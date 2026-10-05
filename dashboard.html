@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="Your FixIt customer dashboard for bookings, services, and saved professionals.">
+  <title>Customer dashboard | FixIt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/providers-data.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+</head>
+<body class="dashboard-body">
+  <a class="skip-link" href="#dashboard-main">Skip to content</a>
+  <div class="dashboard-shell">
+    <aside class="dashboard-sidebar" aria-label="Customer dashboard navigation">
+      <a class="dashboard-brand" href="index.html" aria-label="FixIt home"><span class="brand-mark"><i data-lucide="wrench" aria-hidden="true"></i></span><span>fixit<span class="brand-period">.</span></span></a>
+      <p class="sidebar-section-label">WORKSPACE</p>
+      <nav class="sidebar-nav">
+        <a href="#dashboard" data-dashboard-view="dashboard" class="is-active"><i data-lucide="layout-dashboard" aria-hidden="true"></i>Dashboard</a>
+        <a href="index.html#services"><i data-lucide="grid-2x2" aria-hidden="true"></i>Services</a>
+        <a href="bookings.html"><i data-lucide="calendar-check-2" aria-hidden="true"></i>Bookings<span class="nav-count" id="sidebar-booking-count">0</span></a>
+        <a href="#favorites" data-dashboard-view="favorites"><i data-lucide="heart" aria-hidden="true"></i>Favorites</a>
+        <a href="#reviews" data-dashboard-view="reviews"><i data-lucide="star" aria-hidden="true"></i>Reviews</a>
+        <a href="#messages" data-dashboard-view="messages"><i data-lucide="message-square" aria-hidden="true"></i>Messages<span class="nav-count" id="sidebar-message-count">0</span></a>
+        <a href="#settings" data-dashboard-view="settings"><i data-lucide="settings-2" aria-hidden="true"></i>Settings</a>
+      </nav>
+      <div class="sidebar-bottom"><span class="sidebar-neighborhood-icon"><i data-lucide="map-pin-house" aria-hidden="true"></i></span><p><strong>Made for your neighborhood</strong><span>Local help, close to home.</span></p></div>
+      <button class="sidebar-user" type="button" data-dashboard-view="settings"><span class="dashboard-avatar" id="sidebar-avatar">G</span><span><strong id="sidebar-user-name">Guest Customer</strong><small>Customer account</small></span><i data-lucide="chevron-up" aria-hidden="true"></i></button>
+    </aside>
+
+    <div class="dashboard-workspace">
+      <header class="dashboard-topbar">
+        <form class="dashboard-search" id="dashboard-search-form" role="search">
+          <label class="visually-hidden" for="dashboard-search-input">Search your bookings</label>
+          <i data-lucide="search" aria-hidden="true"></i>
+          <input id="dashboard-search-input" type="search" placeholder="Search bookings or providers">
+        </form>
+        <div class="dashboard-topbar-actions">
+          <div class="notification-wrap">
+            <button class="icon-button notification-button" id="notification-button" type="button" aria-label="Notifications" aria-expanded="false" aria-controls="notification-panel"><i data-lucide="bell" aria-hidden="true"></i><span class="notification-dot" id="notification-dot" hidden></span></button>
+            <div class="notification-panel" id="notification-panel" hidden><strong>Notifications</strong><p id="notification-copy">You’re all caught up.</p><a href="bookings.html">View bookings</a></div>
+          </div>
+          <button class="topbar-profile" type="button" data-dashboard-view="settings"><span class="dashboard-avatar" id="topbar-avatar">G</span><span id="topbar-user-name">Guest Customer</span><i data-lucide="chevron-down" aria-hidden="true"></i></button>
+        </div>
+      </header>
+
+      <main class="dashboard-main" id="dashboard-main">
+        <section class="dashboard-view" id="dashboard" data-view-panel="dashboard">
+          <div class="dashboard-greeting"><div><p class="eyebrow eyebrow-blue">YOUR FIXIT HOME</p><h1 id="greeting-title">Good Morning, Guest Customer</h1><p>Here’s what’s happening with your home services.</p></div><a class="dashboard-new-booking" href="providers.html"><i data-lucide="plus" aria-hidden="true"></i> New booking</a></div>
+
+          <section class="dashboard-stats" aria-label="Booking statistics">
+            <article class="dashboard-stat"><span class="stat-icon stat-icon-blue"><i data-lucide="calendar-days" aria-hidden="true"></i></span><div><span>Total Bookings</span><strong id="stat-total-bookings">0</strong><small>All your service requests</small></div></article>
+            <article class="dashboard-stat"><span class="stat-icon stat-icon-orange"><i data-lucide="clock-3" aria-hidden="true"></i></span><div><span>Pending Bookings</span><strong id="stat-pending-bookings">0</strong><small>Still in progress</small></div></article>
+            <article class="dashboard-stat"><span class="stat-icon stat-icon-green"><i data-lucide="wallet" aria-hidden="true"></i></span><div><span>Total Spent</span><strong id="stat-total-spent">₹0</strong><small>Completed service estimates</small></div></article>
+          </section>
+
+          <div class="dashboard-main-grid">
+            <section class="dashboard-section service-shortcuts-section" aria-labelledby="shortcuts-heading">
+              <div class="dashboard-section-heading"><div><p class="eyebrow eyebrow-blue">QUICK ACCESS</p><h2 id="shortcuts-heading">Service shortcuts</h2></div><a href="index.html#services">All services <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+              <div class="shortcut-grid">
+                <a class="service-shortcut" href="providers.html?service=Electrician"><span class="shortcut-icon shortcut-electric"><i data-lucide="zap" aria-hidden="true"></i></span><span>Electrician</span><i class="shortcut-arrow" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                <a class="service-shortcut" href="providers.html?service=Plumber"><span class="shortcut-icon shortcut-water"><i data-lucide="faucet" aria-hidden="true"></i></span><span>Plumber</span><i class="shortcut-arrow" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                <a class="service-shortcut" href="providers.html?service=Car%20repair"><span class="shortcut-icon shortcut-car"><i data-lucide="car-front" aria-hidden="true"></i></span><span>Mechanic</span><i class="shortcut-arrow" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                <a class="service-shortcut" href="providers.html?service=Laptop%20Hardware%20Repair"><span class="shortcut-icon shortcut-laptop"><i data-lucide="laptop" aria-hidden="true"></i></span><span>Laptop Repair</span><i class="shortcut-arrow" data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+              </div>
+            </section>
+            <section class="dashboard-section upcoming-section" aria-labelledby="upcoming-heading">
+              <div class="dashboard-section-heading"><div><p class="eyebrow eyebrow-blue">NEXT UP</p><h2 id="upcoming-heading">Upcoming booking</h2></div><a href="bookings.html">All bookings <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+              <div id="upcoming-booking-content"></div>
+            </section>
+          </div>
+
+          <section class="dashboard-section recent-section" aria-labelledby="recent-heading">
+            <div class="dashboard-section-heading"><div><p class="eyebrow eyebrow-blue">YOUR ACTIVITY</p><h2 id="recent-heading">Recent bookings</h2></div><a href="bookings.html">View all <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+            <div class="recent-bookings-table-wrap"><table class="recent-bookings-table"><thead><tr><th>Service</th><th>Provider</th><th>Date</th><th>Amount</th><th>Status</th><th aria-label="Action"></th></tr></thead><tbody id="recent-bookings-body"></tbody></table></div>
+            <div class="recent-bookings-empty" id="recent-bookings-empty" hidden><i data-lucide="calendar-days" aria-hidden="true"></i><p>Your recent bookings will appear here.</p><a href="providers.html">Find a professional</a></div>
+          </section>
+        </section>
+
+        <section class="dashboard-view secondary-dashboard-view" id="favorites" data-view-panel="favorites" hidden><div class="dashboard-page-heading"><p class="eyebrow eyebrow-blue">SAVED PROFESSIONALS</p><h1>Favorites</h1><p>Your saved local professionals.</p></div><div class="dashboard-record-grid" id="favorites-list"></div><div class="dashboard-empty-state" id="favorites-empty" hidden><i data-lucide="heart" aria-hidden="true"></i><h2>No favorites yet</h2><p>Save providers from their profile to find them here.</p><a href="providers.html">Browse professionals</a></div></section>
+        <section class="dashboard-view secondary-dashboard-view" id="reviews" data-view-panel="reviews" hidden><div class="dashboard-page-heading"><p class="eyebrow eyebrow-blue">YOUR FEEDBACK</p><h1>Reviews</h1><p>Reviews you’ve shared about completed services.</p></div><div class="dashboard-record-list" id="reviews-list"></div><div class="dashboard-empty-state" id="reviews-empty" hidden><i data-lucide="star" aria-hidden="true"></i><h2>No reviews yet</h2><p>Complete a service and share your experience.</p></div></section>
+        <section class="dashboard-view secondary-dashboard-view" id="messages" data-view-panel="messages" hidden><div class="dashboard-page-heading"><p class="eyebrow eyebrow-blue">CONVERSATIONS</p><h1>Messages</h1><p>Your locally saved message drafts.</p></div><div class="dashboard-record-list" id="messages-list"></div><div class="dashboard-empty-state" id="messages-empty" hidden><i data-lucide="message-square" aria-hidden="true"></i><h2>No messages yet</h2><p>Message a professional from their profile to save a draft here.</p></div></section>
+        <section class="dashboard-view secondary-dashboard-view" id="settings" data-view-panel="settings" hidden><div class="dashboard-page-heading"><p class="eyebrow eyebrow-blue">ACCOUNT</p><h1>Settings</h1><p>Update the name shown on your FixIt dashboard.</p></div><form class="dashboard-settings-form" id="settings-form"><label for="customer-name-input">Your name</label><input id="customer-name-input" name="customerName" maxlength="60" required><p id="settings-status" role="status" aria-live="polite"></p><button class="dashboard-primary-button" type="submit">Save profile</button></form></section>
+      </main>
+
+      <nav class="dashboard-mobile-nav" aria-label="Mobile navigation">
+        <a href="#dashboard" data-mobile-dashboard-view="dashboard" class="is-active"><i data-lucide="house" aria-hidden="true"></i><span>Home</span></a>
+        <a href="index.html#services"><i data-lucide="grid-2x2" aria-hidden="true"></i><span>Services</span></a>
+        <a href="bookings.html"><i data-lucide="calendar-check-2" aria-hidden="true"></i><span>Bookings</span></a>
+        <a href="#settings" data-mobile-dashboard-view="settings"><i data-lucide="user-round" aria-hidden="true"></i><span>Profile</span></a>
+      </nav>
+    </div>
+  </div>
+</body>
+</html>
